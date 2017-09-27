@@ -1,0 +1,128 @@
+1、Anaconda是基于Python开发的，所以官网下载时选择Python2或者3的版本只是为了让Anaconda可以正常运行的基础条件，
+与操作系统使用哪个版本的或者多版本环境用哪个是无关的。
+
+2、安装Anaconda后会提供一个conda的命令行工具，前提是操作系统的环境变量里存在：D:\Anaconda3;D:\Anaconda3\Scripts 这两个路径。
+基本用法如下：
+C:\Users\j00406054>conda info
+Current conda install:
+
+               platform : win-64
+          conda version : 4.3.21
+       conda is private : False
+      conda-env version : 4.3.21
+    conda-build version : not installed
+         python version : 3.6.1.final.0
+       requests version : 2.14.2
+       root environment : D:\Anaconda3  (writable)
+    default environment : D:\Anaconda3
+       envs directories : D:\Anaconda3\envs
+                          C:\Users\j00406054\AppData\Local\conda\conda\envs
+                          C:\Users\j00406054\.conda\envs
+          package cache : D:\Anaconda3\pkgs
+                          C:\Users\j00406054\AppData\Local\conda\conda\pkgs
+           channel URLs : https://repo.continuum.io/pkgs/free/win-64
+                          https://repo.continuum.io/pkgs/free/noarch
+                          https://repo.continuum.io/pkgs/r/win-64
+                          https://repo.continuum.io/pkgs/r/noarch
+                          https://repo.continuum.io/pkgs/pro/win-64
+                          https://repo.continuum.io/pkgs/pro/noarch
+                          https://repo.continuum.io/pkgs/msys2/win-64
+                          https://repo.continuum.io/pkgs/msys2/noarch
+            config file : C:\Users\j00406054\.condarc   //注释：conda的配置文件，可以修改软件源下载镜像地址等
+             netrc file : None
+           offline mode : False
+             user-agent : conda/4.3.21 requests/2.14.2 CPython/3.6.1 Windows/7 Windows/6.1.7601
+          administrator : True
+
+3、Anaconda安装后最实用的功能是虚拟环境管理。使用如下命令创建所需要版本的虚拟环境。（这一步会从镜像地址下载所需的包，所以需要联网）
+C:\Users\j00406054>conda create -n python3 python=3.6
+Fetching package metadata ...........
+Solving package specifications: .
+
+Package plan for installation in environment D:\Anaconda3\envs\python3:
+
+The following NEW packages will be INSTALLED:
+
+    certifi:        2016.2.28-py36_0 defaults
+    pip:            9.0.1-py36_1     defaults
+    python:         3.6.2-0          defaults
+    setuptools:     36.4.0-py36_1    defaults
+    vs2015_runtime: 14.0.25420-0     defaults
+    wheel:          0.29.0-py36_0    defaults
+    wincertstore:   0.2-py36_0       defaults
+
+Proceed ([y]/n)? y
+
+vs2015_runtime 100% |###############################| Time: 0:00:01   1.31 MB/s
+python-3.6.2-0 100% |###############################| Time: 0:01:07 491.80 kB/s
+certifi-2016.2 100% |###############################| Time: 0:00:00  24.34 MB/s
+wincertstore-0 100% |###############################| Time: 0:00:00   7.20 MB/s
+setuptools-36. 100% |###############################| Time: 0:00:00  27.34 MB/s
+#
+# To activate this environment, use:
+# > activate python3
+#
+# To deactivate this environment, use:
+# > deactivate python3
+#
+# * for power-users using bash, you must source
+#
+创建之后可以在 D:\Anaconda3\envs 目录下看到一个以上面-n参数所命名的目录（python3）。
+
+4、删除虚拟环境的命令：
+C:\Users\j00406054>conda remove -n python361 --all
+
+Remove all packages in environment D:\Anaconda3\envs\python361:
+
+Proceed ([y]/n)? y
+
+5、激活虚拟环境
+C:\Users\j00406054>activate python3
+
+(python3) C:\Users\j00406054>conda list //查看当前虚拟环境下包的版本
+# packages in environment at D:\Anaconda3\envs\python3:
+#
+certifi                   2016.2.28                py36_0    defaults
+pip                       9.0.1                    py36_1    defaults
+python                    3.6.2                         0    defaults
+setuptools                36.4.0                   py36_1    defaults
+vs2015_runtime            14.0.25420                    0    defaults
+wheel                     0.29.0                   py36_0    defaults
+wincertstore              0.2                      py36_0    defaults
+
+(python3) C:\Users\j00406054>python
+Python 3.6.2 |Continuum Analytics, Inc.| (default, Jul 20 2017, 12:30:02) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+
+6、虚拟环境中安装需要的包
+(python3) C:\Users\j00406054>conda install xlrd //使用conda install安装需要的库
+Fetching package metadata ...........
+Solving package specifications: .
+
+Package plan for installation in environment D:\Anaconda3\envs\python3:
+
+The following NEW packages will be INSTALLED:
+
+    xlrd: 1.1.0-py36_0 defaults
+
+Proceed ([y]/n)? y
+
+xlrd-1.1.0-py3 100% |###############################| Time: 0:00:00  19.34 MB/s
+
+(python3) C:\Users\j00406054>conda list
+# packages in environment at D:\Anaconda3\envs\python3:
+#
+certifi                   2016.2.28                py36_0    defaults
+pip                       9.0.1                    py36_1    defaults
+python                    3.6.2                         0    defaults
+setuptools                36.4.0                   py36_1    defaults
+vs2015_runtime            14.0.25420                    0    defaults
+wheel                     0.29.0                   py36_0    defaults
+wincertstore              0.2                      py36_0    defaults
+xlrd                      1.1.0                    py36_0    defaults //使用conda install安装的库
+
+7、去激活虚拟环境
+(python3) C:\Users\j00406054>deactivate python3
+
+C:\Users\j00406054>
