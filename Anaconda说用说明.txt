@@ -67,6 +67,12 @@ setuptools-36. 100% |###############################| Time: 0:00:00  27.34 MB/s
 #
 # * for power-users using bash, you must source
 #
+
+C:\Users\j00406054>conda env list
+# conda environments:
+#
+python3                  D:\Anaconda3\envs\python3
+root                  *  D:\Anaconda3
 创建之后可以在 D:\Anaconda3\envs 目录下看到一个以上面-n参数所命名的目录（python3）。
 
 4、删除虚拟环境的命令：
@@ -95,7 +101,7 @@ Python 3.6.2 |Continuum Analytics, Inc.| (default, Jul 20 2017, 12:30:02) [MSC v
 Type "help", "copyright", "credits" or "license" for more information.
 >>> exit()
 
-6、虚拟环境中安装需要的包
+6、虚拟环境中安装需要的库
 (python3) C:\Users\j00406054>conda install xlrd //使用conda install安装需要的库
 Fetching package metadata ...........
 Solving package specifications: .
